@@ -1,0 +1,19 @@
+SELECT 
+    d.Name AS DeveloperName,
+    p.Name AS ProjectName,
+    COUNT(*) AS TaskCount,
+    SUM(t.EstimatedHours) AS TotalEstimatedHours
+FROM DeveloperProject dp
+INNER JOIN Projects p 
+    ON p.ProjectID = dp.ProjectID
+INNER JOIN Developers d 
+    ON dp.DeveloperID = d.DeveloperID
+INNER JOIN Tasks t 
+    ON p.ProjectID = t.ProjectID
+WHERE t.IsCompleted = 0
+GROUP BY 
+    d.Name, 
+    p.Name
+ORDER BY 
+    d.Name, 
+    p.Name;
