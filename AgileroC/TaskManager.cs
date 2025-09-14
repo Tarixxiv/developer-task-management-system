@@ -1,6 +1,6 @@
 namespace AgileroC;
 /*
- Because of the peculiar way that the excersise was constructed (GetOverdueTasks and CalculateAverageTaskDurationPerSeniority having
+ Because of the peculiar way that the exercise was constructed (GetOverdueTasks and CalculateAverageTaskDurationPerSeniority having
  assignments as parameter, we end up with a stateless object with pure static methods. If that was not a requirement
  I'd make TaskManager contain a reference to some Assignment collection (injected in constructor) and then have all those methods work on that.
  I'd also change parameter type in GetOverdueTasks and CalculateAverageTaskDurationPerSeniority to IEnumerable<Assignment>,
